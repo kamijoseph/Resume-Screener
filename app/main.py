@@ -27,6 +27,18 @@ def load_artifacts(base_path):
 
 model, encoder, vectorizer = load_artifacts("app/../resources")
 
+# resume cleaner
+def clean_resume(text):
+    cleaned_text = re.sub("http\S+\s", " ", text)
+    cleaned_text = re.sub("RT|CC", " ", cleaned_text)
+    cleaned_text = re.sub("@\S+", " ", cleaned_text)
+    cleaned_text = re.sub("#\S+", " ", cleaned_text)
+    cleaned_text = re.sub("[%s]" % re.escape("""|#$%&'()*+,-./:;<=>?@[\]^_'{|}~"""), " ", cleaned_text)
+    cleaned_text = re.sub(r"[^\x00-\x7f]", " ", cleaned_text)
+    cleaned_text = re.sub("\s+", " ", cleaned_text)
+    return cleaned_text
+
+
 # title
 def main():
     st.title("**Resume Screener Web Application**")
@@ -40,6 +52,7 @@ def main():
     
     if resume is not None:
 
+        # utf-8 and latin decoder
         try:
             resume_bytes = resume.read()
             resume_txt = resume_bytes.decode("utf-8")
