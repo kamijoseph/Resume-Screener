@@ -26,3 +26,12 @@ def load_artifacts(base_path):
     return model, encoder, vectorizer
 
 model, encoder, vectorizer = load_artifacts("app/../resources")
+
+# title
+def main():
+    st.title("Resume Screener Web Application")
+    st.write("Resume Screener Web Application is an NLP powered to screen a resume to show what field the resume belongs to")
+
+
+if __name__ == "__main__":
+    main()
