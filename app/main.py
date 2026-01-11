@@ -36,7 +36,15 @@ def main():
     
     st.divider()
 
-    st.file_uploader("**Upload Resume:**", type=["txt", "pdf"])
+    resume = st.file_uploader("**Upload Resume:**", type=["txt", "pdf"])
+    
+    if resume is not None:
+
+        try:
+            resume_bytes = resume.read()
+            resume_txt = resume_bytes.decode("utf-8")
+        except UnicodeDecodeError:
+            resume_text = resume_bytes.decode("latin-1")
 
 
 if __name__ == "__main__":
