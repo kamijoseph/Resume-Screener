@@ -29,8 +29,14 @@ model, encoder, vectorizer = load_artifacts("app/../resources")
 
 # title
 def main():
-    st.title("Resume Screener Web Application")
-    st.write("Resume Screener Web Application is an NLP powered to screen a resume to show what field the resume belongs to")
+    st.title("**Resume Screener Web Application**")
+    st.write(
+        "NLP powered Resume Screener"
+    )
+    
+    st.divider()
+
+    st.file_uploader("**Upload Resume:**", type=["txt", "pdf"])
 
 
 if __name__ == "__main__":
