@@ -50,14 +50,23 @@ def main():
 
     resume = st.file_uploader("**Upload Resume:**", type=["txt", "pdf"])
     
-    if resume is not None:
+    if resume and st.button("Screen"):
 
-        # utf-8 and latin decoder
-        try:
-            resume_bytes = resume.read()
-            resume_txt = resume_bytes.decode("utf-8")
-        except UnicodeDecodeError:
-            resume_text = resume_bytes.decode("latin-1")
+            # utf-8 and latin decoder
+            try:
+                resume_bytes = resume.read()
+                resume_text = resume_bytes.decode("utf-8")
+            except UnicodeDecodeError:
+                resume_text = resume_bytes.decode("latin-1")
+            
+            # cleaniong and vectorizing resumes
+            cleaned_resume = clean_resume(resume_text)
+            vectorized_resume = vectorizer.transform([cleaned_resume])
+
+            # predictions
+            prediction_idx = model.predict(vectorized_resume)[0]
+            st.write("message")
+
 
 
 if __name__ == "__main__":
