@@ -64,8 +64,10 @@ def main():
             vectorized_resume = vectorizer.transform([cleaned_resume])
 
             # predictions
-            prediction_idx = model.predict(vectorized_resume)[0]
-            st.write("message")
+            prediction = model.predict(vectorized_resume)[0]
+            classes = encoder.classes_.tolist()
+            output = classes[prediction]
+            st.subheader(f"Output: **{output}**")
 
 
 
