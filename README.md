@@ -5,7 +5,7 @@ The system processes uploaded resumes, cleans the text, vectorizes it, and predi
 
 ---
 
-## [Click to live WebApp](https://datascope-plus.streamlit.app)
+## [Click to live WebApp](https://resumescreeningwebapp.streamlit.app)
 
 ---
 
