@@ -5,6 +5,10 @@ The system processes uploaded resumes, cleans the text, vectorizes it, and predi
 
 ---
 
+## [Click to live WebApp](https://datascope-plus.streamlit.app)
+
+---
+
 ## Overview
 
 This application is designed to automate the initial resume screening process using classical Natural Language Processing techniques. It loads pre-trained artifacts (model, label encoder, and vectorizer) and exposes an interactive web interface for inference.
